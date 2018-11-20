@@ -1,0 +1,2 @@
+# arimaforfinance
+R ARIMA Model
