@@ -1,0 +1,26 @@
+Los paquetes que requiero: astsa, xts
+plot(AirPassengers) #solo para testear si esta ok
+plot(djia$Close)
+plot(diff(djia$Close)) #grafica la diferencia de precios de cierre del DJ
+plot(globtemp) #grafica temperaturaglobal
+
+par(mfrow = c(2,1)) #grafica la data como en caja
+plot(globtemp) 
+# Plot cmort and detrended cmort
+par(mfrow = c(2,1))
+plot(cmort)
+
+
+
+
+# Generate and plot white noise
+WN <- arima.sim(model = list(order = c(0, 0, 0)), n = 200)
+plot(WN)
+
+# Generate and plot an MA(1) with parameter .9 by filtering the noise
+MA <- arima.sim(model = list(order = c(0, 0, 1), ma = .9), n = 200)  
+plot(MA)
+
+# Generate and plot an AR(1) with parameters 1.5 and -.75
+AR <- arima.sim(model = list(order = c(2, 0, 0), ar = c(1.5, -.75)), n = 200) 
+plot(AR)
